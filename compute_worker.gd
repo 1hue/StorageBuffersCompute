@@ -18,15 +18,16 @@ var counter: int
 var storage_out: PackedFloat32Array
 var benchmark: float
 
+
 func _init() -> void:
 	rd = RenderingServer.create_local_rendering_device()
-
-	compile()
 
 	var storage_init := PackedByteArray()
 	# Each 32-bit float is 4 bytes
 	storage_init.resize(SSBO_SIZE * 4)
 	storage_buffer = rd.storage_buffer_create(storage_init.size(), storage_init)
+
+	compile()
 
 
 ## Destructor
@@ -48,6 +49,9 @@ func _notification(what) -> void:
 
 
 func compile() -> void:
+	if shader.is_valid():
+		rd.free_rid(shader)
+
 	shader = compile_shader(rd, SHADER_PATH)
 	shader_hash = FileAccess.get_md5(SHADER_PATH)
 	pipeline = rd.compute_pipeline_create(shader)
@@ -57,7 +61,6 @@ func compile() -> void:
 func should_recompile() -> bool:
 	var hash_current := FileAccess.get_md5(SHADER_PATH)
 	return shader_hash and shader_hash != hash_current
-
 
 
 ## Import, compile and load shader
@@ -88,8 +91,9 @@ func compute(push_constant: PackedFloat32Array) -> void:
 		"Push constant passed in must be strictly a predetermined length of %d" % INPUT_COUNT)
 
 	# Uniform set: storage buffer
+	# For clarity we recreate these here every time.
+	# In a high load environment this should be moved out and effectively cached.
 	var uniform: RDUniform = create_uniform([storage_buffer], RenderingDevice.UNIFORM_TYPE_STORAGE_BUFFER)
-	#var storage_buffer_set := UniformSetCacheRD.get_cache(shader, 1, [uniform])
 	var storage_buffer_set: RID = rd.uniform_set_create([uniform], shader, 0)
 
 	rd.capture_timestamp("bench_start")
@@ -115,8 +119,8 @@ func sync() -> void:
 
 	# Important this is after sync but before buffer_get_data
 	benchmark = _get_benchmark()
-	print(benchmark)
 
 	var bytes_out := rd.buffer_get_data(storage_buffer)
+	print_rich('Output: [color=pale_green][b]%s[/b][/color]' % [bytes_out.to_float32_array()])
 	counter = bytes_out.decode_u32(0)
 	storage_out = bytes_out.slice(4).to_float32_array()
