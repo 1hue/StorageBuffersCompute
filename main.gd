@@ -20,7 +20,7 @@ func _on_compute_button_pressed() -> void:
 	time.text = "%.4f" % worker.benchmark
 	counter.text = "%d" % worker.counter
 
-	for i in worker.storage_out.size():
+	for i in output_fields.get_child_count():
 		# Note that we're formatting floats into %d decimals
 		output_fields.get_child(i).text = "%d" % worker.storage_out[i]
 

@@ -128,20 +128,6 @@ layout_mode = 2
 theme_type_variation = &"TooltipLabel"
 text = "SSBO"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 5
-
-[node name="TimeLabel" type="Label" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
-layout_mode = 2
-text = "Invocation count: "
-
-[node name="Counter" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-alignment = 1
-editable = false
-
 [node name="OutputFields" type="GridContainer" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
@@ -186,6 +172,20 @@ editable = false
 [node name="Out7" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/OutputFields"]
 layout_mode = 2
 size_flags_horizontal = 3
+editable = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TimeLabel" type="Label" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "Invocation count: "
+
+[node name="Counter" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
 editable = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
