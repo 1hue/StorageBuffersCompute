@@ -94,7 +94,6 @@ func compute(push_constant: PackedFloat32Array) -> void:
 	assert(push_constant.size() == INPUT_COUNT,
 		"Push constant passed in must strictly be predetermined length of %d" % INPUT_COUNT)
 
-	print(pipeline, ' ssbo ', storage_buffer)
 	rd.capture_timestamp("bench_start")
 	var compute_list = rd.compute_list_begin()
 	rd.compute_list_bind_compute_pipeline(compute_list, pipeline)
