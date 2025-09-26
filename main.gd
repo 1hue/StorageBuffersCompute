@@ -1,3 +1,4 @@
+# Copyright (c) 2025 1hue - MIT License
 extends Control
 
 @onready var input_fields: GridContainer = %InputFields
