@@ -21,6 +21,7 @@ void main() {
   // Each invocation is uniquely identified by idx and only touches that particular array index
   storage_data[idx] = push_data[idx];
 
-  // With our persistent storage buffer, the data doesn't disappear, so we could keep adding:
+  // With our persistent storage buffer, the data doesn't disappear until we destroy the buffer ourselves,
+  // so we could keep adding:
   //storage_data[idx] += push_data[idx];
 }
