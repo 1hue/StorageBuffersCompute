@@ -1,0 +1,210 @@
+[gd_scene load_steps=4 format=3 uid="uid://blj1osnmlcr3"]
+
+[ext_resource type="Script" uid="uid://crdsw16k806c7" path="res://src/main.gd" id="1_0wfyh"]
+[ext_resource type="Theme" uid="uid://b15ra6qxpt5d0" path="res://resources/theme.tres" id="2_sugp2"]
+
+[sub_resource type="Theme" id="Theme_ig7tw"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ig7tw")
+script = ExtResource("1_0wfyh")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_sugp2")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("2_sugp2")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "In"
+
+[node name="Label2" type="Label" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TooltipLabel"
+text = "Push Constant"
+
+[node name="InputFields" type="GridContainer" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+columns = 4
+
+[node name="LineEdit0" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer/InputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="LineEdit1" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer/InputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+
+[node name="LineEdit2" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer/InputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2"
+
+[node name="LineEdit3" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer/InputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+
+[node name="LineEdit4" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer/InputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4"
+
+[node name="LineEdit5" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer/InputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+
+[node name="LineEdit6" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer/InputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "6"
+
+[node name="LineEdit7" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer/InputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "7"
+
+[node name="Control" type="Control" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ComputeButton" type="Button" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Compute"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Out"
+
+[node name="Label2" type="Label" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+theme_type_variation = &"TooltipLabel"
+text = "SSBO"
+
+[node name="OutputFields" type="GridContainer" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+columns = 4
+
+[node name="Out0" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/OutputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="Out1" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/OutputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="Out2" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/OutputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="Out3" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/OutputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="Out4" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/OutputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="Out5" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/OutputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="Out6" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/OutputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="Out7" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/OutputFields"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TimeLabel" type="Label" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "Invocation count: "
+
+[node name="Counter" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+editable = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TimeLabel" type="Label" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Time:"
+horizontal_alignment = 2
+
+[node name="Time" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+editable = false
+
+[node name="TimeLabel2" type="Label" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "s"
+
+[connection signal="pressed" from="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer/ComputeButton" to="." method="_on_compute_button_pressed"]
