@@ -20,10 +20,6 @@ variation_opentype = {
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tekt2"]
 bg_color = Color(0.12156863, 0.14117648, 0.1882353, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_tekt2"]
 color = Color(0.22352941, 0.35686275, 0.3137255, 0.4392157)

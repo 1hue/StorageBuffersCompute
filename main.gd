@@ -16,10 +16,11 @@ func _on_compute_button_pressed() -> void:
 	worker.compute(inputs)
 	worker.sync()
 
-	#time.text = "%d" % worker.get_benchmark()
-	counter.text = "%d" % worker.invocation_counter
+	time.text = "%.4f" % worker.benchmark
+	counter.text = "%d" % worker.counter
 
 	for i in worker.storage_out.size():
+		# Note that we're formatting floats into %d decimals
 		output_fields.get_child(i).text = "%d" % worker.storage_out[i]
 
 

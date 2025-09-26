@@ -16,7 +16,10 @@ shared vec3 s[gl_WorkGroupSize.x * gl_WorkGroupSize.y];
 void main() {
   uint idx = gl_LocalInvocationID.x + gl_LocalInvocationID.y * gl_WorkGroupSize.x;
   uint prev = atomicAdd(counter, 1u);
+
+  // Each invocation is uniquely identified by idx and only touches that particular array index
   storage_data[idx] = push_data[idx];
+
   // With our persistent storage buffer, the data doesn't disappear, so we could keep adding:
   //storage_data[idx] += push_data[idx];
 }

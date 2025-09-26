@@ -13,8 +13,9 @@ var pipeline: RID
 var storage_buffer: RID
 
 # Outputs
-var invocation_counter: int
+var counter: int
 var storage_out: PackedFloat32Array
+var benchmark: float
 
 func _init() -> void:
 	rd = RenderingServer.create_local_rendering_device()
@@ -101,7 +102,7 @@ func compute(push_constant: PackedFloat32Array) -> void:
 	rd.submit()
 
 
-func get_benchmark() -> float:
+func _get_benchmark() -> float:
 	var start := rd.get_captured_timestamp_gpu_time(0)
 	var end := rd.get_captured_timestamp_gpu_time(1)
 	var gpu_ms := (end - start) * 1e-6
@@ -111,6 +112,10 @@ func get_benchmark() -> float:
 func sync() -> void:
 	rd.sync()
 
+	# Important this is after sync but before buffer_get_data
+	benchmark = _get_benchmark()
+	print(benchmark)
+
 	var bytes_out := rd.buffer_get_data(storage_buffer)
-	invocation_counter = bytes_out.decode_u32(0)
+	counter = bytes_out.decode_u32(0)
 	storage_out = bytes_out.slice(4).to_float32_array()
