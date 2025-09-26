@@ -1,0 +1,27 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Storage Buffers Compute"
+run/main_scene="uid://blj1osnmlcr3"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/bg_color=Color(0.047058824, 0.13333334, 0.6784314, 1)
+boot_splash/show_image=false
+config/icon="uid://rv6d63umacp5"
+
+[display]
+
+window/size/viewport_width=568
+window/size/viewport_height=360
+
+[rendering]
+
+renderer/rendering_method="mobile"

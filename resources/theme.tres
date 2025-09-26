@@ -1,0 +1,43 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://b15ra6qxpt5d0"]
+
+[ext_resource type="FontFile" uid="uid://br8poa703xh3r" path="res://resources/fonts/JetBrainsMono-VariableFont_wght.ttf" id="1_d4nwg"]
+
+[sub_resource type="FontVariation" id="FontVariation_7ct1h"]
+base_font = ExtResource("1_d4nwg")
+variation_opentype = {
+2003265652: 500
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4nwg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ct1h"]
+
+[sub_resource type="FontVariation" id="FontVariation_886mr"]
+base_font = ExtResource("1_d4nwg")
+variation_opentype = {
+2003265652: 500
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tekt2"]
+bg_color = Color(0.12156863, 0.14117648, 0.1882353, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_tekt2"]
+color = Color(0.22352941, 0.35686275, 0.3137255, 0.4392157)
+thickness = 2
+vertical = true
+
+[resource]
+BoxContainer/constants/separation = 20
+Button/font_sizes/font_size = 15
+Button/fonts/font = SubResource("FontVariation_7ct1h")
+ColorPicker/styles/picker_focus_circle = SubResource("StyleBoxFlat_d4nwg")
+ColorPicker/styles/picker_focus_rectangle = SubResource("StyleBoxFlat_7ct1h")
+Label/fonts/font = SubResource("FontVariation_886mr")
+LineEdit/fonts/font = SubResource("FontVariation_886mr")
+Panel/styles/panel = SubResource("StyleBoxFlat_tekt2")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_tekt2")
+VSeparator/styles/separator = SubResource("StyleBoxLine_tekt2")
