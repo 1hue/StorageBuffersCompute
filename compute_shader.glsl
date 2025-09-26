@@ -1,3 +1,4 @@
+// Copyright (c) 2025 1hue - MIT License
 #[compute]
 #version 460
 
