@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0.12156863, 0.14117648, 0.1882353, 1)
 boot_splash/show_image=false
 boot_splash/fullsize=false
-config/icon="uid://dhp40nej0rnv8"
+config/icon="uid://c5t5eowbs725u"
 
 [display]
 

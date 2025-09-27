@@ -10,7 +10,7 @@ Example use of **Specialization Constants** — which are more efficient than Pu
 
 UI that demonstrates the concepts:
 
-![Screenshot](/assets/screenshot.png)
+![Screenshot](/assets/screenshot.webp)
 
 Scripts of interest:
 
