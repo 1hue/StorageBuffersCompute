@@ -1,5 +1,3 @@
-![Godot Storage Buffers Compute](/assets/hero.png)
-
 # Storage Buffers Compute
 
 Showcase of getting data into and out of GLSL compute shaders using Push Constants and Storage Buffers&hellip; in Godot.
