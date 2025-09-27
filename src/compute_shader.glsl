@@ -8,7 +8,8 @@ layout(local_size_x = 4, local_size_y = 2) in;
 layout(set = 0, binding = 0, std430) buffer DataStorageBuffer {
   // Order here is very important for the right byte offsets outside of the shader
   uint counter;
-  // float padding; // Layout rules dictate that this must be a group of 16 bytes, but we can omit/comment out this line as it can be inferred
+  // Layout rules dictate that this must be a group of 16 bytes (=4 floats), but we can omit/comment out the following line as it can be inferred
+  // float padding;
   vec2 constants;
 
   float storage_data[];
