@@ -20,6 +20,7 @@ Scripts of interest:
 Tested with:
 
 - Godot 4.5
+- Godot 4.4
 - Vulkan API
 
 Compute shaders are not supported in WebGL/Compatibility mode.
