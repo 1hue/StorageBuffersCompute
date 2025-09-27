@@ -4,7 +4,7 @@ Showcase of getting data into and out of GLSL compute shaders using Push Constan
 
 Helpful UI included to help understand the concepts.
 
-For more info, see https://1hue.github.io/storage-buffers-compute
+For more info, see https://1hue.github.io/storage-buffers-compute-shaders-godot
 
 ![Screenshot](/resources/screenshot.png)
 
