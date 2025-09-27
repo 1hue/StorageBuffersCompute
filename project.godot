@@ -13,9 +13,10 @@ config_version=5
 config/name="Storage Buffers Compute"
 run/main_scene="uid://blj1osnmlcr3"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-boot_splash/bg_color=Color(0.047058824, 0.13333334, 0.6784314, 1)
+boot_splash/bg_color=Color(0.12156863, 0.14117648, 0.1882353, 1)
 boot_splash/show_image=false
-config/icon="uid://rv6d63umacp5"
+boot_splash/fullsize=false
+config/icon="uid://dhp40nej0rnv8"
 
 [display]
 
