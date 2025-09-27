@@ -1,12 +1,14 @@
 # Storage Buffers Compute
 
-Showcase of getting data into and out of GLSL compute shaders using Push Constants and Storage Buffers&hellip; in Godot.
+Showcase of getting data into and out of GLSL compute shaders using Push Constants, Specialization Constants and Storage Buffers in Godot.
 
-Usage of **Specialization Constants** -- which are more efficient than Push Constants for input data that need not change during runtime -- is also included.
+See https://1hue.github.io/storage-buffers-compute-shaders-godot for further reading.
 
-Helpful UI included to help understand the concepts.
+<br />
 
-For more info, see https://1hue.github.io/storage-buffers-compute-shaders-godot
+Example use of **Specialization Constants** — which are more efficient than Push Constants for input data that need not change during runtime — is included.
+
+UI to help understand the concepts:
 
 ![Screenshot](/assets/screenshot.png)
 
