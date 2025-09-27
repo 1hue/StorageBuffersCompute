@@ -8,7 +8,7 @@ See https://1hue.github.io/storage-buffers-compute-shaders-godot for further rea
 
 Example use of **Specialization Constants** — which are more efficient than Push Constants for input data that need not change during runtime — is included.
 
-UI to help understand the concepts:
+UI that demonstrates the concepts:
 
 ![Screenshot](/assets/screenshot.png)
 
