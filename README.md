@@ -2,7 +2,7 @@
 
 Showcase of getting data into and out of GLSL compute shaders using Push Constants and Storage Buffers&hellip; in Godot.
 
-Usage of **Specialization Constants** -- which are a more efficient to pass data in than Push Constants for data that need not change during runtime -- is also included.
+Usage of **Specialization Constants** -- which are more efficient than Push Constants for input data that need not change during runtime -- is also included.
 
 Helpful UI included to help understand the concepts.
 
