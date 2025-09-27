@@ -12,9 +12,9 @@ For more info, see https://1hue.github.io/storage-buffers-compute-shaders-godot
 
 ## Compatibility
 
-Compute shaders are not supported in WebGL/compatibility mode.
-
 Tested with:
 
 - Godot 4.5
 - Vulkan API
+
+Compute shaders are not supported in WebGL/Compatibility mode.
