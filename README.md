@@ -10,6 +10,11 @@ For more info, see https://1hue.github.io/storage-buffers-compute-shaders-godot
 
 ![Screenshot](/resources/screenshot.png)
 
+Scripts of interest:
+
+- [`/src/compute_worker.gd`](src/compute_worker.gd)
+- [`/src/compute_shader.glsl`](src/compute_shader.glsl)
+
 ## Compatibility
 
 Tested with:
