@@ -2,8 +2,8 @@
 #[compute]
 #version 460
 
-layout (constant_id = 0) const float CONSTANT_0 = 0.0;
-layout (constant_id = 1) const float CONSTANT_1 = 0.0;
+layout(constant_id = 0) const float CONSTANT_0 = 0.0;
+layout(constant_id = 1) const float CONSTANT_1 = 0.0;
 layout(local_size_x = 4, local_size_y = 2) in;
 layout(set = 0, binding = 0, std430) buffer DataStorageBuffer {
   // Order here is very important for the right byte offsets outside of the shader
