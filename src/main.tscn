@@ -206,10 +206,6 @@ editable = false
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="TimeLabel" type="Label" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer4"]
-layout_mode = 2
-text = "Specialization constants: "
-
 [node name="SpecConstantsOut" type="LineEdit" parent="PanelContainer/CenterContainer/MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer4"]
 unique_name_in_owner = true
 layout_mode = 2
