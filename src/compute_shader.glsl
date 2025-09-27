@@ -2,10 +2,15 @@
 #[compute]
 #version 460
 
+layout (constant_id = 0) const float CONSTANT_0 = 0.0;
+layout (constant_id = 1) const float CONSTANT_1 = 0.0;
 layout(local_size_x = 4, local_size_y = 2) in;
 layout(set = 0, binding = 0, std430) buffer DataStorageBuffer {
   // Order here is very important for the right byte offsets outside of the shader
   uint counter;
+  // float padding; // Layout rules dictate that this must be a group of 16 bytes, but we can omit/comment out this line as it can be inferred
+  vec2 constants;
+
   float storage_data[];
 };
 layout(push_constant, std430) uniform PushParams {
@@ -22,4 +27,9 @@ void main() {
   // With our persistent storage buffer, the data doesn't disappear until we destroy the buffer ourselves,
   // so we could keep adding:
   //storage_data[idx] += push_data[idx];
+
+  // Don't need to run this 8 times, only run it on invocation 0
+  if (idx == 0) {
+    constants = vec2(CONSTANT_0, CONSTANT_1);
+  }
 }

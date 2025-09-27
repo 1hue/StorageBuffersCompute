@@ -4,7 +4,12 @@ class_name ComputeWorker
 
 const SHADER_PATH = "res://src/compute_shader.glsl"
 const INPUT_COUNT = 8
-const SSBO_SIZE = 1 + INPUT_COUNT # Number of floats for our input/output. 1 counter + 8 inputs
+## Number of floats for our input/output.
+## 1 counter + 2 floats for Vector2 `constants` + 1 empty float for "padding" + 8 actual inputs
+const SSBO_SIZE = 1 + 2 + 1 + INPUT_COUNT
+
+const SPEC_CONSTANT_0 = 12.0
+const SPEC_CONSTANT_1 = 34.0
 
 var rd: RenderingDevice
 var shader: RID
@@ -14,6 +19,7 @@ var storage_buffer: RID
 
 # Outputs
 var counter: int
+var constants: Vector2
 var storage_out: PackedFloat32Array
 var benchmark: float
 
@@ -51,7 +57,7 @@ func _compile() -> void:
 		rd.free_rid(shader)
 
 	shader = compile_shader(rd, SHADER_PATH)
-	pipeline = rd.compute_pipeline_create(shader)
+	pipeline = rd.compute_pipeline_create(shader, create_specialization_constants())
 
 	# Reset storage buffer upon recompilation
 	_init_storage_buffer()
@@ -81,6 +87,22 @@ func compile_shader(p_rd: RenderingDevice, p_shader_path: String) -> RID:
 	return p_rd.shader_create_from_spirv(shader_spirv)
 
 
+func create_specialization_constants() -> Array[RDPipelineSpecializationConstant]:
+	var constants_in: Array[RDPipelineSpecializationConstant] = []
+
+	var constant := RDPipelineSpecializationConstant.new()
+	constant.constant_id = 0
+	constant.value = SPEC_CONSTANT_0
+	constants_in.append(constant)
+
+	constant = RDPipelineSpecializationConstant.new()
+	constant.constant_id = 1
+	constant.value = SPEC_CONSTANT_1
+	constants_in.append(constant)
+
+	return constants_in
+
+
 func create_uniform(rids: Array[RID], type: RenderingDevice.UniformType, binding: int = 0) -> RDUniform:
 	var uniform: RDUniform = RDUniform.new()
 	uniform.uniform_type = type
@@ -92,7 +114,7 @@ func create_uniform(rids: Array[RID], type: RenderingDevice.UniformType, binding
 
 func compute(push_constant: PackedFloat32Array) -> void:
 	assert(push_constant.size() == INPUT_COUNT,
-		"Push constant passed in must strictly be predetermined length of %d" % INPUT_COUNT)
+		"Push constant passed in must strictly be of predetermined length %d" % INPUT_COUNT)
 
 	rd.capture_timestamp("bench_start")
 	var compute_list = rd.compute_list_begin()
@@ -120,7 +142,13 @@ func sync() -> void:
 
 	var bytes_out := rd.buffer_get_data(storage_buffer)
 
+	# Bytes 0-4
 	counter = bytes_out.decode_u32(0)
-	storage_out = bytes_out.slice(4).to_float32_array()
+	# Bytes 4 through 8 become empty/padding
+
+	# Bytes 8-16
+	constants = Vector2(bytes_out.decode_float(8), bytes_out.decode_float(12))
+	# Bytes 16+
+	storage_out = bytes_out.slice(16).to_float32_array()
 
 	print_rich('Output: %d | [color=pale_green][b]%s[/b][/color]' % [counter, storage_out])

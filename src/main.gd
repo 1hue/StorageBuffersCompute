@@ -1,15 +1,23 @@
 # Copyright (c) 2025 1hue - MIT License
 extends Control
 
+
 @onready var input_fields: GridContainer = %InputFields
 @onready var output_fields: GridContainer = %OutputFields
 @onready var counter: LineEdit = %Counter
 @onready var time: LineEdit = %Time
+@onready var spec_constants_out: LineEdit = %SpecConstantsOut
+@onready var spec_constant_0: LineEdit = %SpecConstant0
+@onready var spec_constant_1: LineEdit = %SpecConstant1
 
 var worker: ComputeWorker
 
 func _ready() -> void:
 	worker = ComputeWorker.new()
+
+	# Just display what these are, we could pass them into the constructor but KISS - keep it simple
+	spec_constant_0.text = "%.1f" % worker.SPEC_CONSTANT_0
+	spec_constant_1.text = "%.1f" % worker.SPEC_CONSTANT_1
 
 
 func _on_compute_button_pressed() -> void:
@@ -19,6 +27,7 @@ func _on_compute_button_pressed() -> void:
 
 	time.text = "%.4f" % worker.benchmark
 	counter.text = "%d" % worker.counter
+	spec_constants_out.text = "Vector2%s" % worker.constants
 
 	for i in output_fields.get_child_count():
 		# Note that we're formatting floats into %d decimals
