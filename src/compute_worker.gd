@@ -144,6 +144,7 @@ func sync() -> void:
 
 	# Bytes 0-4
 	counter = bytes_out.decode_u32(0)
+
 	# Bytes 4 through 8 become empty/padding
 
 	# Bytes 8-16
@@ -151,4 +152,6 @@ func sync() -> void:
 	# Bytes 16+
 	storage_out = bytes_out.slice(16).to_float32_array()
 
-	print_rich('Output: %d | [color=pale_green][b]%s[/b][/color]' % [counter, storage_out])
+	print_rich('Output: x%d | Vector2%s | [color=pale_green][b]%s[/b][/color]' % [
+		counter, constants, storage_out
+	])
