@@ -140,7 +140,7 @@ func sync() -> void:
 	# Important this is after sync but before buffer_get_data
 	benchmark = _get_benchmark()
 
-	var bytes_out := rd.buffer_get_data(storage_buffer)
+	var bytes_out: PackedByteArray = rd.buffer_get_data(storage_buffer)
 
 	# Bytes 0-4
 	counter = bytes_out.decode_u32(0)
@@ -149,7 +149,7 @@ func sync() -> void:
 
 	# Bytes 8-16
 	constants = Vector2(bytes_out.decode_float(8), bytes_out.decode_float(12))
-	# Bytes 16+
+	# Bytes 16 onwards
 	storage_out = bytes_out.slice(16).to_float32_array()
 
 	print_rich('Output: x%d | Vector2%s | [color=pale_green][b]%s[/b][/color]' % [

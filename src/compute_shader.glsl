@@ -8,7 +8,8 @@ layout(local_size_x = 4, local_size_y = 2) in;
 layout(set = 0, binding = 0, std430) buffer DataStorageBuffer {
   // Order here is very important for the right byte offsets outside of the shader
   uint counter;
-  // std430 layout rules dictate that this must have a boundary every 16 bytes (=4 floats), but we can omit/comment out the following line as it can be inferred
+  // Standard 430 layout rules dictate that there must be a boundary every 16 bytes (=4 floats),
+  // but we can omit/comment out the following line as it can be inferred when compiling to SPIR-V
   // float padding;
   vec2 constants;
 
